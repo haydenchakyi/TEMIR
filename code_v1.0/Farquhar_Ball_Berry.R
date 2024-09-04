@@ -718,12 +718,13 @@ f_Farquhar_Ball_Berry = function(c_a, e_a, phi, T_v=298.15, P_atm=101325, theta_
                     print('Too many iterations!')
                     # Take initial value instead...
                     if (C3_plant) c_i = 0.7*c_a else c_i = 0.5*c_a
-                    O3_coef_An = 1
+                    O3_coef_An = O3_coef_An_initial
                     Fval = f_ci2()
                     break
                 }
                 c_i0 = c_i1
                 O3_coef_An0 = O3_coef_An1
+                if (n_itr == 0) O3_coef_An_initial = O3_coef_An0
                 fval0 = fval1
                 gval0 = gval1
                 B0 = B1
